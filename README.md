@@ -73,6 +73,7 @@ DATABASE_URL=postgresql+psycopg://user:password@localhost:5432/dbname
 مسؤول عن تعريف شكل الجداول.
 
 ```python
+from uuid import uuid4
 from sqlalchemy import Column, Integer, String
 from database import Base
 
