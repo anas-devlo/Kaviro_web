@@ -79,7 +79,7 @@ from database import Base
 class User(Base):
     __tablename__ = "users"
 
-    id = Column(Integer, primary_key=True, index=True)
+    uuid = Column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
     name = Column(String, nullable=False)
     email = Column(String, unique=True, nullable=True, index=True)
     phone = Column(String, unique=True, nullable=True, index=True)
@@ -90,7 +90,7 @@ class User(Base):
 
 | العمود | النوع | الخصائص |
 |---|---|---|
-| `id` | Integer | مفتاح أساسي (`primary_key`)، بيزيد تلقائياً، عليه فهرس (`index`) |
+| `uuid` | Integer | مفتاح أساسي (`primary_key`)، بيزيد تلقائياً، عليه فهرس (`index`) |
 | `name` | String | إجباري (`nullable=False`) |
 | `email` | String | فريد (`unique`)، ممكن يبقى فاضي، عليه فهرس |
 | `phone` | String | فريد (`unique`)، ممكن يبقى فاضي، عليه فهرس |
